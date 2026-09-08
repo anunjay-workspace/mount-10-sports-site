@@ -1,6 +1,7 @@
 export const siteConfig = {
   name: "Mount 10 Sports",
   tagline: "Step up your game.",
+  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "https://mount10sports.com",
   whatsappNumber: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "10000000000",
   tiktokHandle: process.env.NEXT_PUBLIC_TIKTOK_HANDLE || "mount10sports",
   instagramHandle: process.env.NEXT_PUBLIC_INSTAGRAM_HANDLE || "",

@@ -1,3 +1,4 @@
+import { notFound } from "next/navigation";
 import { client } from "./client";
 
 export async function sanityFetch<T>({
@@ -9,7 +10,12 @@ export async function sanityFetch<T>({
   params?: Record<string, unknown>;
   tags: string[];
 }): Promise<T> {
-  return client.fetch<T>(query, params, {
-    next: { tags },
-  });
+  try {
+    return await client.fetch<T>(query, params, {
+      next: { tags },
+    });
+  } catch (err) {
+    console.error("Sanity query failed:", err);
+    notFound();
+  }
 }
